@@ -1,19 +1,21 @@
 import Phaser from 'phaser'
-import Events from './helpers/Events'
-import Global from './helpers/Global'
 import config from './config'
 import withEvents from "./mixins/withEvents";
 import attachMixins from "./helpers/attachMixins";
-
+import Global from "./helpers/Global";
+import scenes from "./scenes/"
 
 
 class Game extends Phaser.Game {
   constructor() {
     const docElement = document.documentElement;
     super(config);
+    //this.scene.add('Loading');
     //with Cordova with need to wait that the device is ready so we will call the Boot scene in another file
+    Global.game = this;
+    console.log(Global.game)
     if (!window.cordova) {
-      this.scene.start('Boot')
+      this.scene.start(scenes.Loading.constructor.name);
     }
   }
 }

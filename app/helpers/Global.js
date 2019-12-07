@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 //возможно нужно его создать в игре, и после этого передать в клас
-module.exports = class Global {
+module.exports = class Global{
+  static game;
   static emmiter = new Phaser.Events.EventEmitter();
 };
