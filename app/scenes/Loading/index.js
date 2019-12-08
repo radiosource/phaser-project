@@ -1,8 +1,11 @@
 import Abstract from '../Abstract'
+import Button from '../Button'
 
 const Global = require('../../helpers/Global');
 
 class Loading extends Abstract {
+  buttons = {};
+
   constructor() {
     super({key: "Loading"});
   }
@@ -25,22 +28,14 @@ class Loading extends Abstract {
     const backgroundScaleY = height / background.displayHeight;
     background.setScale(backgroundScaleX, backgroundScaleY);
 
-    //@todo - create button class
-    const container = this.add.container(0, 0);
-    const button = this.add.image(0, 0, 'buttonRelease');
-    const text = this.add.text(0, 0, 'New game',
-        {fontFamily: 'troika', fontSize: 25, color: '#cfdad5'})
-        .setOrigin(0.5, 0.6)
-        .setShadow(2, 2, "#571310", 2, false, true);
-    text.fontSize = 24;
-    const buttonScaleX = width / (button.displayWidth * 3);
-    container.add(button);
-    container.add(text);
-    container.setScale(buttonScaleX);
-    container.setPosition((width / 2) - (button.displayWidth / 3), (height / 2) - (button.displayHeight / 2));
+    this._addButton({name: "startButton", scene: this, x: 0, y: 0, text: 'New game'});
   }
 
   update() {
+  }
+
+  _addButton(buttonOptions) {
+    this.buttons[buttonOptions.name] = new Button(buttonOptions);
   }
 }
 
