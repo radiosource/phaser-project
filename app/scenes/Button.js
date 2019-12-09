@@ -2,6 +2,7 @@ import Phaser from "phaser";
 import withEvents from "../mixins/withEvents";
 import attachMixins from "../helpers/attachMixins";
 
+const {constants} = require('../../config/default');
 const Global = require('../helpers/Global');
 
 class Button extends Phaser.GameObjects.Container {
@@ -42,6 +43,14 @@ class Button extends Phaser.GameObjects.Container {
       this.image.visible = false;
       this.pressedImage.visible = true;
       //@todo emit change scene event
+
+      this.scene.cameras.main.once('camerafadeoutcomplete', function (camera) {
+        console.log("11111")
+      }, this.scene);
+
+      //@todo move to scene
+      this.scene.cameras.main.fadeOut(constants.FADE_TIME, 255,255,255);
+
     }, this.scene);
   }
 

@@ -2,25 +2,25 @@ import Phaser from 'phaser'
 import withEvents from '../mixins/withEvents'
 import attachMixins from '../helpers/attachMixins';
 
+const {constants} = require('../../config/default');
+
 class Abstract extends Phaser.Scene {
 
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+    }
 
-  init() {
+    init() {
+    }
 
-  }
+    preload() {
+    }
 
-  preload() {
-  }
+    create() {
+    }
 
-  create() {
-
-  }
-
-  update() {
-  }
+    update() {
+    }
 }
 
 module.exports = attachMixins(Abstract, withEvents);
