@@ -50,7 +50,7 @@ class Button extends Phaser.GameObjects.Container {
 
       //@todo move to scene
       setTimeout(()=>{
-        this.scene.cameras.main.fadeOut(constants.FADE_TIME, 0,0,0);
+        this.scene.cameras.main.fadeOut(constants.FADE_TIME, ...constants.FADE_COLORS);
       },100)
 
     }, this.scene);
