@@ -1,5 +1,7 @@
 import Abstract from '../Abstract'
 import Button from '../Button'
+import withFadeIn from '../../mixins/withFadeIn'
+import attachMixins from '../../helpers/attachMixins';
 
 const Global = require('../../helpers/Global');
 const {constants} = require('../../../config/default');
@@ -9,6 +11,7 @@ class Loading extends Abstract {
 
   constructor() {
     super({key: "Loading"});
+    this.applyFade();
   }
 
   init() {
@@ -22,12 +25,6 @@ class Loading extends Abstract {
   }
 
   create() {
-    console.log("====")
-    //todo move to mixin
-    this.cameras.main.fadeIn(constants.FADE_TIME, 255,255,255);
-
-    // console.log(this.scene)
-    // console.log(this.scene.camera)
     const {width, height} = Global.game.config;
     const background = this.add.image(0, 0, 'background').setOrigin(0, 0);
     const backgroundScaleX = width / background.displayWidth;
@@ -45,4 +42,4 @@ class Loading extends Abstract {
   }
 }
 
-module.exports = Loading;
+module.exports = attachMixins(Loading,withFadeIn);
