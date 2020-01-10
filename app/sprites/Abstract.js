@@ -13,6 +13,7 @@ class Abstract extends Phaser.GameObjects.Sprite {
     super();
     const Class = require(`./${this.constructor.name}`);
     Class.quantity++;
+    this._bindEventsHandlers();
     //this.id = Class.quantity;
   }
 

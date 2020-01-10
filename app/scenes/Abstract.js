@@ -8,6 +8,7 @@ class Abstract extends Phaser.Scene {
 
     constructor() {
         super();
+        this._bindEventsHandlers();
     }
 
     init() {

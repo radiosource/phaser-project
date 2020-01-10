@@ -6,6 +6,8 @@ const {constants} = require('../../config/default');
 const Global = require('../helpers/Global');
 
 class Button extends Phaser.GameObjects.Container {
+  static CLICK_MSG = "button::click";
+
   scene;
   name;
   image;
@@ -42,16 +44,19 @@ class Button extends Phaser.GameObjects.Container {
     this.image.once('pointerup', () => {
       this.image.visible = false;
       this.pressedImage.visible = true;
+
+      this.emmit(Button.CLICK_MSG, this);
       //@todo emit change scene event
 
-      this.scene.cameras.main.once('camerafadeoutcomplete', function (camera) {
-        console.log("11111")
-      }, this.scene);
-
-      //@todo move to scene
-      setTimeout(()=>{
-        this.scene.cameras.main.fadeOut(constants.FADE_TIME, ...constants.FADE_COLORS);
-      },100)
+      // this.scene.cameras.main.once('camerafadeoutcomplete', function (camera) {
+      //   //change scene
+      //   console.log("11111")
+      // }, this.scene);
+      //
+      // //@todo move to scene
+      // setTimeout(() => {
+      //   this.scene.cameras.main.fadeOut(constants.FADE_TIME, ...constants.FADE_COLORS);
+      // }, 100)
 
     }, this.scene);
   }

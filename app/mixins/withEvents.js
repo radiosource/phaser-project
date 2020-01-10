@@ -4,22 +4,22 @@ const Events = require('../helpers/Events');
 module.exports = {
 
   emmit() {
-    Global.emitter.emmit(...arguments)
+    Global.emmiter.emit(...arguments)
   },
 
   on(event, fn) {
-    if (!Events[event]) console.warn(`Event: "${event}" is not register!`)
+    if (!Events[event]) console.warn(`Event: "${event}" is not register!`);
     fn instanceof Function
-        ? Global.emitter.on(...arguments)
-        : Global.emitter.on(event, this._on[event])
+        ? Global.emmiter.on(...arguments)
+        : Global.emmiter.on(event, this._on[event])
     ;
   },
 
   off(event, fn, context, once) {
     if (!Events[event]) console.warn(`Event: "${event}" is not register!`);
     fn instanceof Function
-        ? Global.emitter.off(...arguments)
-        : Global.emitter.on(event, this._on[event])
+        ? Global.emmiter.off(...arguments)
+        : Global.emmiter.on(event, this._on[event])
     ;
   },
 

@@ -32,13 +32,19 @@ class Menu extends Abstract {
     background.setScale(backgroundScaleX, backgroundScaleY);
 
     this._addButton({name: "startButton", x: 0, y: 0, text: 'New game'});
+
+    this.on(Button.CLICK_MSG, (data) => {
+      console.log(`debug## index.js::37`);
+      console.log(Button.CLICK_MSG)
+      console.log(data)
+    })
   }
 
   update() {
   }
 
   _addButton(buttonOptions) {
-    this.buttons[buttonOptions.name] = new Button({...buttonOptions,scene: this});
+    this.buttons[buttonOptions.name] = new Button({...buttonOptions, scene: this});
   }
 }
 
