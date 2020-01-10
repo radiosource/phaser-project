@@ -10,12 +10,12 @@ class Game extends Phaser.Game {
   constructor() {
     const docElement = document.documentElement;
     super(config);
-    //this.scene.add('Loading');
+    //this.scene.add('Menu');
     //with Cordova with need to wait that the device is ready so we will call the Boot scene in another file
     Global.game = this;
     console.log(Global.game)
     if (!window.cordova) {
-      this.scene.start(scenes.Loading.constructor.name);
+      this.scene.start(scenes.Menu.constructor.name);
     }
   }
 }

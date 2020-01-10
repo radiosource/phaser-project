@@ -3,6 +3,10 @@ const Events = require('../helpers/Events');
 
 module.exports = {
 
+  emmit() {
+    Global.emitter.emmit(...arguments)
+  },
+
   on(event, fn) {
     if (!Events[event]) console.warn(`Event: "${event}" is not register!`)
     fn instanceof Function

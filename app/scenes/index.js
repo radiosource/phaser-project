@@ -1,3 +1,3 @@
 module.exports = {
-  Loading: require('./Loading/')
+  Menu: require('./Menu/')
 };

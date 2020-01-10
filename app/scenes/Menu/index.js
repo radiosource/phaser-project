@@ -6,11 +6,11 @@ import attachMixins from '../../helpers/attachMixins';
 const Global = require('../../helpers/Global');
 const {constants} = require('../../../config/default');
 
-class Loading extends Abstract {
+class Menu extends Abstract {
   buttons = {};
 
   constructor() {
-    super({key: "Loading"});
+    super({key: "Menu"});
     this.applyFade();
   }
 
@@ -42,4 +42,4 @@ class Loading extends Abstract {
   }
 }
 
-module.exports = attachMixins(Loading,withFadeIn);
+module.exports = attachMixins(Menu, withFadeIn);

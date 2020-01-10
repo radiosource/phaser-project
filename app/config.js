@@ -6,7 +6,7 @@ export default {
   width: window.innerWidth * window.devicePixelRatio,
   height: window.innerHeight * window.devicePixelRatio,
   localStorageName: 'phaseres6webpack',
-  scene: [scenes.Loading],
+  scene: [scenes.Menu],
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH
